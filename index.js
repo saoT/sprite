@@ -5,21 +5,25 @@ var spriteStepWidth = 92;
 var spriteSteps = 2;
 var step = 0;
 
+//step = 2
 function initSprite () {
+  //'-' + (2 * 92) + 'px' -> -184px
+  sprite.style.left= '-' + step * spriteStepWidth + 'px';
+  // if ( 2 == 2 )
   if (step == spriteSteps) {
     step = 0;
   }
   else {
+    // step = 2;
     step++;
   }
-  sprite.style.left= '-' + step * spriteStepWidth + 'px';
 }
 
 //-----------------------------------------------------------
 // WITHOUT BUTTONS
 //-----------------------------------------------------------
 
-var spriteAnimation = window.setInterval(initSprite, 800);
+var spriteAnimation = window.setInterval(initSprite, 80);
 
 //-----------------------------------------------------------
 // WITH BUTTONS
