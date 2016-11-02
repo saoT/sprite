@@ -1,0 +1,21 @@
+#fenetre {
+  position: relative;
+  width: 92px;
+  height: 64px;
+  overflow: hidden;
+}
+
+#sprite {
+  position: relative;
+}
+
+/*/*--------------------- WITH CSS ANIMATION WITHOUT JS ---------------------*/
+/*
+#birdy {
+  animation: flap .160s steps(3) infinite alternate;
+}
+
+@keyframes flap {
+  from { left:  0px; }
+  to { left: -276px; }
+}*/
