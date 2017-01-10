@@ -1,5 +1,7 @@
-#fenetre {
-  position: relative;
+#birdy {
+  position: absolute;
+  top: 45%;
+  left: 45%;
   width: 92px;
   height: 64px;
   overflow: hidden;
@@ -9,13 +11,6 @@
   position: relative;
 }
 
-/*/*--------------------- WITH CSS ANIMATION WITHOUT JS ---------------------*/
-/*
-#birdy {
-  animation: flap .160s steps(3) infinite alternate;
+pipes.div {
+  position absolute;
 }
-
-@keyframes flap {
-  from { left:  0px; }
-  to { left: -276px; }
-}*/

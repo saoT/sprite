@@ -1,50 +1,68 @@
 //--------------------- CREATE ANIMATION ---------------------//
 
-var sprite = document.getElementById('sprite');
+var birdy           = document.getElementById('birdy');
+var sprite          = document.getElementById('sprite');
 var spriteStepWidth = 92;
-var spriteSteps = 2;
-var step = 0;
+var spriteSteps     = 2;
+var step            = 0;
+var up              = false;
 
-//step = 2
-function initSprite () {
-  //'-' + (2 * 92) + 'px' -> -184px
+function setEvents () {
+
+  document.onkeydown = function (e) {
+    if ( e.keyCode == 32 ) {
+      up = true;
+    }
+  }
+
+  document.onkeyup = function (e) {
+    if ( e.keyCode == 32 ) {
+      up = false;
+    }
+  }
+
+}
+
+// step = 2
+function animateSprite () {
+
+  // '-' + (2 * 92) + 'px' -> -184px
   sprite.style.left= '-' + step * spriteStepWidth + 'px';
+
   // if ( 2 == 2 )
   if (step == spriteSteps) {
     step = 0;
   }
+
   else {
     // step = 2;
     step++;
   }
+
+}
+
+function animateFly () {
+
+  var fall = birdy.offsetTop;
+
+  if (up == true) {
+    birdy.style.top = (fall - 20) + 'px';
+  }
+
+  else {
+    birdy.style.top = (fall + 12) + 'px';
+  }
+
+}
+
+function animateScene () {
+  animateSprite();
+  animateFly();
 }
 
 //-----------------------------------------------------------
-// WITHOUT BUTTONS
+// LAUNCH SCENE
 //-----------------------------------------------------------
 
-var spriteAnimation = window.setInterval(initSprite, 80);
-
-//-----------------------------------------------------------
-// WITH BUTTONS
-//-----------------------------------------------------------
-
-//--------------------- START ANIMATION ---------------------//
-
-// var startAnimation = document.getElementById('start');
-// var spriteAnimation;
-
-// startAnimation.onclick = function () {
-//   window.clearInterval(spriteAnimation);
-//   spriteAnimation = window.setInterval(initSprite, 80);
-// }
-
-
-
-//--------------------- STOP ANIMATION ---------------------//
-
-// var stopAnimation = document.getElementById('stop');
-
-// stopAnimation.onclick = function () {
-//   window.clearInterval(spriteAnimation);
-// }
+setEvents();
+var animationInstance = window.setInterval(animateScene, 80);
